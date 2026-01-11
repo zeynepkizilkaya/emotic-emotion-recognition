@@ -1,39 +1,48 @@
-<invoke name="artifacts">
-<parameter name="command">update</parameter>
-<parameter name="id">emotic_report</parameter>
-<parameter name="old_str">EMOTION RECOGNITION FROM BODY LANGUAGE USING EMOTIC DATASET
-SEN4107 Neural Networks Course Project
-Zeynep Kızılkaya (2364532)
-Zeynep Nilay Yazıcı (2371998)
-January 2026
-═══════════════════════════════════════════════════════════════════════════════</parameter>
-<parameter name="new_str"># Emotion Recognition from Body Language using EMOTIC Dataset
-SEN4107 Neural Networks Course Project
-Authors: Zeynep Kızılkaya (2364532), Zeynep Nilay Yazıcı (2371998)
-Date: January 2026
-Show Image
+# Emotion Recognition from Body Language using EMOTIC Dataset
 
-📋 Project Overview
+**SEN4107 Neural Networks Course Project**  
+**Authors:** Zeynep Kızılkaya (2364532), Zeynep Nilay Yazıcı (2371998)  
+**Date:** January 2026
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zeynepkizilkaya/emotic-emotion-recognition/blob/main/notebooks/Project_code.ipynb)
+
+---
+
+## 📋 Project Overview
+
 This project implements emotion recognition from body language using the EMOTIC dataset. We compare two deep learning architectures:
 
-Model 1: Two-stream CNN (Body + Context) using ResNet18 baseline
-Model 2: Three-stream CNN (Body + Context + Pose) using ResNet18 + MediaPipe Pose Estimation
+- **Model 1:** Two-stream CNN (Body + Context) using ResNet18 baseline
+- **Model 2:** Three-stream CNN (Body + Context + Pose) using ResNet18 + MediaPipe Pose Estimation
 
+---
 
-🎯 Results
-ModelArchitectureEpochsTest mAPImprovementModel 1ResNet18 (Body + Context)200.1623BaselineModel 2ResNet18 + Pose100.1669+2.83%
+## 🎯 Results
 
-📊 Visualizations
-Overall Comparison
-Show Image
-Model 1 Results
-Show Image
-Show Image
-Model 2 Results
-Show Image
-Show Image
+| Model | Architecture | Epochs | Test mAP | Improvement |
+|-------|-------------|---------|----------|-------------|
+| Model 1 | ResNet18 (Body + Context) | 20 | 0.1623 | Baseline |
+| Model 2 | ResNet18 + Pose | 10 | 0.1669 | **+2.83%** |
 
-📁 Repository Structure
+---
+
+## 📊 Visualizations
+
+### Overall Comparison
+![Overall Comparison](results/comparison_visualization.png)
+
+### Model 1 Results
+![Model 1 Training](results/model1/training_curves.png)
+![Model 1 Performance](results/model1/per_emotion_comparison.png)
+
+### Model 2 Results
+![Model 2 Training](results/model2/training_curves.png)
+![Model 2 Performance](results/model2/per_emotion_comparison.png)
+
+---
+
+## 📁 Repository Structure
+```
 emotic-emotion-recognition/
 │
 ├── models/                    # Model architecture definitions
@@ -59,177 +68,207 @@ emotic-emotion-recognition/
 ├── report.pdf                 # Complete project report
 ├── requirements.txt           # Python dependencies
 └── README.md                  # This file
+```
 
-🚀 Quick Start
-Option 1: Google Colab (Recommended) ⭐
+---
 
-Click the "Open in Colab" badge above or open notebooks/Project_code.ipynb in Google Colab
-Mount your Google Drive
-Upload EMOTIC dataset to your Drive (see data/README.md for instructions)
-Run all cells to train both models
+## 🚀 Quick Start
 
-Advantages of Colab:
+### Option 1: Google Colab (Recommended) ⭐
 
-Free GPU access (NVIDIA Tesla T4)
-No local setup required
-Pre-installed deep learning libraries
-Easy Google Drive integration
+1. Click the "Open in Colab" badge above or open `notebooks/Project_code.ipynb` in Google Colab
+2. Mount your Google Drive
+3. Upload EMOTIC dataset to your Drive (see `data/README.md` for instructions)
+4. Run all cells to train both models
 
-Option 2: Local Training
-1. Clone the Repository:
-bashgit clone https://github.com/YOUR_USERNAME/emotic-emotion-recognition.git
+**Advantages of Colab:**
+- Free GPU access (NVIDIA Tesla T4)
+- No local setup required
+- Pre-installed deep learning libraries
+- Easy Google Drive integration
+
+### Option 2: Local Training
+
+**1. Clone the Repository:**
+```bash
+git clone https://github.com/zeynepkizilkaya/emotic-emotion-recognition.git
 cd emotic-emotion-recognition
-2. Install Dependencies:
-bashpip install -r requirements.txt
-3. Download EMOTIC Dataset:
-Follow instructions in data/README.md to download the EMOTIC dataset.
-4. Train Models:
-bash# Train Model 1 (Baseline)
+```
+
+**2. Install Dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Download EMOTIC Dataset:**
+Follow instructions in `data/README.md` to download the EMOTIC dataset.
+
+**4. Train Models:**
+```bash
+# Train Model 1 (Baseline)
 python training/train_model1.py
 
 # Train Model 2 (with Pose)
 python training/train_model2.py
-Note: Local training requires a CUDA-capable GPU with 8GB+ VRAM.
+```
 
-💻 Environment Setup
-Google Colab Specifications
+**Note:** Local training requires a CUDA-capable GPU with 8GB+ VRAM.
+
+---
+
+## 💻 Environment Setup
+
+### Google Colab Specifications
+
 This project was developed using Google Colab with:
 
-GPU: NVIDIA Tesla T4 (16GB memory)
-CPU: Intel Xeon
-RAM: 12GB
-Python: 3.10
-PyTorch: 2.0
-CUDA: 11.8
+- **GPU:** NVIDIA Tesla T4 (16GB memory)
+- **CPU:** Intel Xeon
+- **RAM:** 12GB
+- **Python:** 3.10
+- **PyTorch:** 2.0
+- **CUDA:** 11.8
 
-Local Setup Requirements
+### Local Setup Requirements
+
 If running locally, ensure you have:
+- Python 3.10+
+- CUDA-capable GPU (8GB+ VRAM recommended)
+- 16GB+ RAM
+- 50GB+ free disk space for dataset
 
-Python 3.10+
-CUDA-capable GPU (8GB+ VRAM recommended)
-16GB+ RAM
-50GB+ free disk space for dataset
+---
 
+## 📊 Dataset Information
 
-📊 Dataset Information
-EMOTIC Dataset:
+**EMOTIC Dataset:**
+- **Total Images:** 23,234 high-resolution images
+- **Training Set:** 17,077 samples (73.5%)
+- **Validation Set:** 2,088 samples (9.0%)
+- **Test Set:** 4,398 samples (17.5%)
+- **Emotion Categories:** 26 discrete emotions (multi-label classification)
+- **Sources:** MS COCO, FramesDB, EMODB Small, ADE20k
 
-Total Images: 23,234 high-resolution images
-Training Set: 17,077 samples (73.5%)
-Validation Set: 2,088 samples (9.0%)
-Test Set: 4,398 samples (17.5%)
-Emotion Categories: 26 discrete emotions (multi-label classification)
-Sources: MS COCO, FramesDB, EMODB Small, ADE20k
+**26 Emotion Categories:**
+- **Positive (9):** Affection, Confidence, Esteem, Excitement, Happiness, Pleasure, Contentment, Cheerfulness, Pride
+- **Negative (11):** Anger, Annoyance, Disapproval, Disconnection, Disquietment, Doubt/Confusion, Embarrassment, Fear, Pain, Sadness, Suffering
+- **Neutral/Social (6):** Anticipation, Aversion, Engagement, Sensitivity, Surprise, Yearning
 
-26 Emotion Categories:
+---
 
-Positive (9): Affection, Confidence, Esteem, Excitement, Happiness, Pleasure, Contentment, Cheerfulness, Pride
-Negative (11): Anger, Annoyance, Disapproval, Disconnection, Disquietment, Doubt/Confusion, Embarrassment, Fear, Pain, Sadness, Suffering
-Neutral/Social (6): Anticipation, Aversion, Engagement, Sensitivity, Surprise, Yearning
+## 🏗️ Model Architectures
 
+### Model 1: Two-Stream Baseline
+- **Body Stream:** ResNet18 (ImageNet pretrained) → 512-dim features
+- **Context Stream:** ResNet18 (ImageNet pretrained) → 512-dim features
+- **Fusion:** Concatenation (1024-dim) → FC(256) → 26 emotions
+- **Parameters:** ~22.6 million
+- **Training:** 20 epochs
 
-🏗️ Model Architectures
-Model 1: Two-Stream Baseline
+### Model 2: Three-Stream with Pose Estimation
+- **Body Stream:** ResNet18 → 512-dim features
+- **Context Stream:** ResNet18 → 512-dim features
+- **Pose Stream:** MediaPipe Pose (17 keypoints) → MLP Encoder → 256-dim features
+- **Fusion:** Concatenation (1280-dim) → FC(512) → FC(256) → 26 emotions
+- **Parameters:** ~23.2 million
+- **Training:** 10 epochs
 
-Body Stream: ResNet18 (ImageNet pretrained) → 512-dim features
-Context Stream: ResNet18 (ImageNet pretrained) → 512-dim features
-Fusion: Concatenation (1024-dim) → FC(256) → 26 emotions
-Parameters: ~22.6 million
-Training: 20 epochs
+**Key Innovation:** Explicit body pose modeling through MediaPipe keypoints provides complementary geometric information beyond appearance features.
 
-Model 2: Three-Stream with Pose Estimation
+---
 
-Body Stream: ResNet18 → 512-dim features
-Context Stream: ResNet18 → 512-dim features
-Pose Stream: MediaPipe Pose (17 keypoints) → MLP Encoder → 256-dim features
-Fusion: Concatenation (1280-dim) → FC(512) → FC(256) → 26 emotions
-Parameters: ~23.2 million
-Training: 10 epochs
+## 🔧 Training Configuration
 
-Key Innovation: Explicit body pose modeling through MediaPipe keypoints provides complementary geometric information beyond appearance features.
+**Hyperparameters:**
+- **Loss Function:** Binary Cross-Entropy (BCE)
+- **Optimizer:** Adam
+  - Model 1: learning rate = 1×10⁻⁴
+  - Model 2: learning rate = 5×10⁻⁵
+- **Batch Size:** 16
+- **Weight Decay:** 1×10⁻⁵
+- **Learning Rate Schedule:** ReduceLROnPlateau (patience=3, factor=0.5)
+- **Early Stopping:** Patience of 7 epochs on validation mAP
 
-🔧 Training Configuration
-Hyperparameters:
+**Data Augmentation:**
+- Random horizontal flip (p=0.5)
+- Color jitter (brightness, contrast, saturation ±0.2)
+- Normalization (ImageNet statistics)
 
-Loss Function: Binary Cross-Entropy (BCE)
-Optimizer: Adam
+---
 
-Model 1: learning rate = 1×10⁻⁴
-Model 2: learning rate = 5×10⁻⁵
+## 📈 Key Findings
 
+1. **Model 2 achieves 2.83% improvement** over baseline with explicit pose modeling
+2. **Faster convergence:** Model 2 reaches better performance in half the epochs (10 vs 20)
+3. **Best performance on:** Engagement (0.61 AP), Confidence (0.41 AP), Anticipation (0.39 AP)
+4. **Pose detection success rate:** 67% with confidence >0.5, 82% with confidence >0.3
+5. **Computational overhead:** Pose detection adds ~30% training time per epoch
 
-Batch Size: 16
-Weight Decay: 1×10⁻⁵
-Learning Rate Schedule: ReduceLROnPlateau (patience=3, factor=0.5)
-Early Stopping: Patience of 7 epochs on validation mAP
+**Top Performing Emotions (Model 2):**
+1. Engagement: 0.6109 AP (+0.33% vs Model 1)
+2. Confidence: 0.4123 AP (+3.02% vs Model 1)
+3. Anticipation: 0.3912 AP (+0.95% vs Model 1)
+4. Happiness: 0.3401 AP (+2.69% vs Model 1)
+5. Esteem: 0.3287 AP (+2.37% vs Model 1)
 
-Data Augmentation:
+---
 
-Random horizontal flip (p=0.5)
-Color jitter (brightness, contrast, saturation ±0.2)
-Normalization (ImageNet statistics)
+## 📄 Documentation
 
+Complete project documentation available in **report.pdf**
 
-📈 Key Findings
-
-Model 2 achieves 2.83% improvement over baseline with explicit pose modeling
-Faster convergence: Model 2 reaches better performance in half the epochs (10 vs 20)
-Best performance on: Engagement (0.61 AP), Confidence (0.41 AP), Anticipation (0.39 AP)
-Pose detection success rate: 67% with confidence >0.5, 82% with confidence >0.3
-Computational overhead: Pose detection adds ~30% training time per epoch
-
-Top Performing Emotions (Model 2):
-
-Engagement: 0.6109 AP (+0.33% vs Model 1)
-Confidence: 0.4123 AP (+3.02% vs Model 1)
-Anticipation: 0.3912 AP (+0.95% vs Model 1)
-Happiness: 0.3401 AP (+2.69% vs Model 1)
-Esteem: 0.3287 AP (+2.37% vs Model 1)
-
-
-📄 Documentation
-Complete project documentation available in report.pdf
 Sections include:
+- Introduction and problem statement
+- Related work and literature review
+- Model architectures and design choices
+- Experimental setup and training details
+- Results analysis and comparison
+- Discussion of strengths, weaknesses, and limitations
 
-Introduction and problem statement
-Related work and literature review
-Model architectures and design choices
-Experimental setup and training details
-Results analysis and comparison
-Discussion of strengths, weaknesses, and limitations
+---
 
+## 🔗 References
 
-🔗 References
+1. **EMOTIC Dataset:** Kosti et al. (2017) - "Context Based Emotion Recognition using EMOTIC Dataset"
+2. **Baseline Repository:** [Tandon-A/emotic](https://github.com/Tandon-A/emotic/blob/master/Colab_train_emotic.ipynb)
+3. **MediaPipe Pose:** [Google MediaPipe Solutions](https://google.github.io/mediapipe/solutions/pose)
+4. **ResNet:** He et al. (2016) - "Deep Residual Learning for Image Recognition"
 
-EMOTIC Dataset: Kosti et al. (2017) - "Context Based Emotion Recognition using EMOTIC Dataset"
-Baseline Repository: Tandon-A/emotic
-MediaPipe Pose: Google MediaPipe Solutions
-ResNet: He et al. (2016) - "Deep Residual Learning for Image Recognition"
+---
 
+## 📝 Citation
 
-📝 Citation
 If you use this code or findings, please cite:
-bibtex@misc{emotic2026,
+```bibtex
+@misc{emotic2026,
   title={Emotion Recognition from Body Language using EMOTIC Dataset},
   author={Kızılkaya, Zeynep and Yazıcı, Zeynep Nilay},
   year={2026},
   institution={SEN4107 Neural Networks Course Project}
 }
+```
 
-👥 Authors
+---
 
-Zeynep Kızılkaya - Student ID: 2364532
-Zeynep Nilay Yazıcı - Student ID: 2371998
+## 👥 Authors
 
-Course: SEN4107 - Neural Networks
-Date: January 2026
+- **Zeynep Kızılkaya** - Student ID: 2364532
+- **Zeynep Nilay Yazıcı** - Student ID: 2371998
 
-📧 Contact
+**Course:** SEN4107 - Neural Networks  
+**Date:** January 2026
+
+---
+
+## 📧 Contact
+
 For questions or issues, please open an issue in this repository.
 
-📜 License
-This project is developed for educational purposes as part of the SEN4107 Neural Networks course.</parameter>
-</invoke>
+---
+
+## 📜 License
+
+This project is developed for educational purposes as part of the SEN4107 Neural Networks course.
 
 All models were trained and evaluated using Google Colab.
 The use of Colab enabled efficient GPU acceleration for training
