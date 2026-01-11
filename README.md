@@ -77,13 +77,13 @@ Easy Google Drive integration
 
 Option 2: Local Training
 1. Clone the Repository:
-bashgit clone https://github.com/zeynepkizilkaya/emotic-emotion-recognition.git
+bashgit clone https://github.com/YOUR_USERNAME/emotic-emotion-recognition.git
 cd emotic-emotion-recognition
-3. Install Dependencies:
+2. Install Dependencies:
 bashpip install -r requirements.txt
-4. Download EMOTIC Dataset:
+3. Download EMOTIC Dataset:
 Follow instructions in data/README.md to download the EMOTIC dataset.
-5. Train Models:
+4. Train Models:
 bash# Train Model 1 (Baseline)
 python training/train_model1.py
 
