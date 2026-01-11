@@ -1,12 +1,26 @@
-## 📊 Results Visualization
+# Model 2 Results
 
-### Overall Comparison
-![Model Comparison](results/comparison_visualization.png)
+Three-stream CNN with pose estimation (Body + Context + Pose)
 
-### Model 1 Performance
-![Model 1 Curves](results/model1/trainingcurves.png)
-![Model 1 Per-Class](results/model1/per_emotion_comparison.png)
+## Performance:
 
-### Model 2 Performance  
-![Model 2 Curves](results/model2/trainingcurves.png)
-![Model 2 Per-Class](results/model2/per_emotion_comparison.png)
+- **Test mAP:** 0.1669 (+2.83% over baseline)
+- **Training Epochs:** 10
+- **Parameters:** ~23.2M
+
+## Files:
+
+- `training_curves.png` - Training/validation loss and mAP curves
+- `per_emotion_comparison.png` - Per-emotion Average Precision scores
+
+## Top 5 Emotions:
+
+1. Engagement: 0.6109 AP (+0.33%)
+2. Confidence: 0.4123 AP (+3.02%)
+3. Anticipation: 0.3912 AP (+0.95%)
+4. Happiness: 0.3401 AP (+2.69%)
+5. Esteem: 0.3287 AP (+2.37%)
+
+## Innovation:
+
+Explicit body pose modeling via MediaPipe (17 keypoints) provides geometric information complementary to appearance features.
